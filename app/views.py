@@ -198,9 +198,44 @@ class api(APIView):
             listaJsonMensual.append(a)
         
         
+        # prueba cambio datos diarios para grafico
+        pruebaListaDiarios=[]
+        for i in dataframeDatoRealAJson:
+            b=[]
+            for x in range(len(i)):
+                
+                b.append({i.index[x]:i.iloc[x,0]})
+                
+            pruebaListaDiarios.append(b)    
+            #print({i.index[x]:i.iloc[x,0]})
+            #i.columns.values
+            
+            # prueba cambio datos semanal para grafico
+        pruebaListaSemanal=[]
+        for i in dataframeDatoRealSemanalAJson:
+            b=[]
+            for x in range(len(i)):
+                
+                b.append({i.index[x]:i.iloc[x,0]})
+                
+            pruebaListaSemanal.append(b) 
+        print(pruebaListaSemanal)
+        
+        # prueba cambio datos mensual para grafico
+        pruebaListaMensual=[]
+        for i in dataframeDatoRealMensualAJson:
+            b=[]
+            for x in range(len(i)):
+                
+                b.append({i.index[x]:i.iloc[x,0]})
+                
+            pruebaListaMensual.append(b) 
+        print(pruebaListaSemanal)
+
+        
         
         #creacion estructura de datos json
-        datos=[{'columna1':[{'ruben': {'datoreal':{'diario':listaJsonDiarios[0]['ruben'],'semanal':listaJsonSemanal[0]['ruben'],'mensual':listaJsonMensual[0]['ruben']},'prediccion':{'diario':[],'semanal':[],'mensual':[]}}},{'walter': {'datoreal':{'diario':listaJsonDiarios[1]['walter'],'semanal':listaJsonSemanal[1]['walter'],'mensual':listaJsonMensual[1]['walter']},'prediccion':{'diario':[],'semanal':[],'mensual':[]}}},{'miguel': {'datoreal':{'diario':listaJsonDiarios[2]['miguel'],'semanal':listaJsonSemanal[2]['miguel'],'mensual':listaJsonMensual[2]['miguel']},'prediccion':{'diario':[],'semanal':[],'mensual':[]}}}]},{'columna2':[{'nombre1': {'datoreal':{'diario':[{'fecha':3},{'fecha':3}],'semanal':[{'indicadorSemana':3},{'indicadorSemana':3}],'mensual':[{'mes':3},{'mes':3}]},'prediccion':{'diario':[],'semanal':[],'mensual':[]}}}]}]
+        datos=[{'columna1':[{'ruben': [{'datoreal':[{'diario':pruebaListaDiarios[0]},{'semanal':pruebaListaSemanal[0]},{'mensual':pruebaListaMensual[0]}]},{'prediccion':[{'diario':[],'semanal':[],'mensual':[]}]}]},{'walter': {'datoreal':{'diario':pruebaListaDiarios[1],'semanal':pruebaListaSemanal[1],'mensual':pruebaListaMensual[1]},'prediccion':{'diario':[],'semanal':[],'mensual':[]}}},{'miguel': {'datoreal':{'diario':pruebaListaDiarios[2],'semanal':pruebaListaSemanal[2],'mensual':pruebaListaMensual[2]},'prediccion':{'diario':[],'semanal':[],'mensual':[]}}}]},{'columna2':[{'nombre1': {'datoreal':{'diario':[{'fecha':3},{'fecha':3}],'semanal':[{'indicadorSemana':3},{'indicadorSemana':3}],'mensual':[{'mes':3},{'mes':3}]},'prediccion':{'diario':[],'semanal':[],'mensual':[]}}}]}]
                             
         print(type(datos)) 
         # datos=json.dumps(datos)
