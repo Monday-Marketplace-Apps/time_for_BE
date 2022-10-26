@@ -235,7 +235,44 @@ class api(APIView):
         
         
         #creacion estructura de datos json
-        datos=[{'columna1':[{'ruben': [{'datoreal':[{'diario':pruebaListaDiarios[0]},{'semanal':pruebaListaSemanal[0]},{'mensual':pruebaListaMensual[0]}]},{'prediccion':[{'diario':[],'semanal':[],'mensual':[]}]}]},{'walter': {'datoreal':{'diario':pruebaListaDiarios[1],'semanal':pruebaListaSemanal[1],'mensual':pruebaListaMensual[1]},'prediccion':{'diario':[],'semanal':[],'mensual':[]}}},{'miguel': {'datoreal':{'diario':pruebaListaDiarios[2],'semanal':pruebaListaSemanal[2],'mensual':pruebaListaMensual[2]},'prediccion':{'diario':[],'semanal':[],'mensual':[]}}}]},{'columna2':[{'nombre1': {'datoreal':{'diario':[{'fecha':3},{'fecha':3}],'semanal':[{'indicadorSemana':3},{'indicadorSemana':3}],'mensual':[{'mes':3},{'mes':3}]},'prediccion':{'diario':[],'semanal':[],'mensual':[]}}}]}]
+        datos=[{'columna1':
+            [{'ruben': 
+                [{'datoreal':
+                    [{'diario':pruebaListaDiarios[0]},
+                    {'semanal':pruebaListaSemanal[0]},
+                    {'mensual':pruebaListaMensual[0]}]},
+                {'prediccion':
+                    [{'diario':[]},
+                    {'semanal':[]},
+                    {'mensual':[]}]}]},
+             {'walter': 
+                 [{'datoreal':
+                     [{'diario':pruebaListaDiarios[1]},
+                      {'semanal':pruebaListaSemanal[1]},
+                      {'mensual':pruebaListaMensual[1]}]},
+                    {'prediccion':
+                        [{'diario':[]},
+                        {'semanal':[]},
+                        {'mensual':[]}]}]},
+             {'miguel': 
+                 [{'datoreal':
+                     [{'diario':pruebaListaDiarios[2]},
+                      {'semanal':pruebaListaSemanal[2]},
+                      {'mensual':pruebaListaMensual[2]}]},
+                     {'prediccion':
+                         [{'diario':[]},
+                          {'semanal':[]},
+                          {'mensual':[]}]}]}]},
+               {'columna2':
+                   [{'nombre1':
+                       [{'datoreal':
+                           [{'diario':[{'fecha1':1},{'fecha2':3}],
+                            'semanal':[{'indicadorSemana1':6},{'indicadorSemana2':3}],
+                            'mensual':[{'mes1':2},{'mes2':3}]}]},
+                           {'prediccion':
+                               [{'diario':[]},
+                                {'semanal':[]},
+                                {'mensual':[]}]}]}]}]
                             
         print(type(datos)) 
         # datos=json.dumps(datos)
