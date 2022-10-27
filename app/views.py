@@ -60,8 +60,8 @@ class api(APIView):
         #     datos[i]['horas']=fechas
     
     
-        datos_miguel={'miguel':{'2022-10-2':4,'2022-10-5':7,'2022-10-12':1,'2022-10-13':6,'2022-10-17':3}}
-        datos_ruben={'ruben':{'2022-10-4':4,'2022-10-5':5,'2022-10-10':5,'2022-10-15':6,'2022-10-18':8}}
+        datos_miguel={'miguel':{'2022-9-1':3,'2022-9-5':1,'2022-9-15':6,'2022-9-20':4,'2022-10-2':4,'2022-10-5':7,'2022-10-12':1,'2022-10-13':6,'2022-10-17':3}}
+        datos_ruben={'ruben':{'2022-9-3':1,'2022-9-7':4,'2022-9-13':2,'2022-9-15':9,'2022-9-27':0.5,'2022-10-4':4,'2022-10-5':5,'2022-10-10':5,'2022-10-15':6,'2022-10-18':8}}
         datos_walter={'walter':{'2022-10-1':1,'2022-10-9':3,'2022-10-10':8,'2022-10-13':6,'2022-10-17':2}}
 
         datosHoras = [datos_ruben,datos_walter,datos_miguel]
@@ -75,7 +75,7 @@ class api(APIView):
                 nombres.append(x)
         # Creacion dataframe valores NaN
         dfDatosReales=pd.DataFrame()
-        start =pd.Timestamp('2022-10-01')#.strftime("%d-%m-%Y")
+        start =pd.Timestamp('2022-09-01')#.strftime("%d-%m-%Y")
         end = pd.Timestamp.now()
         fechas = pd.date_range(start, end)#.strftime("%d-%m-%Y")
         dfDatosReales = pd.DataFrame(index = fechas,columns = nombres)
@@ -209,7 +209,7 @@ class api(APIView):
             pruebaListaDiarios.append(b)    
             #print({i.index[x]:i.iloc[x,0]})
             #i.columns.values
-            
+          
             # prueba cambio datos semanal para grafico
         pruebaListaSemanal=[]
         for i in dataframeDatoRealSemanalAJson:
@@ -219,7 +219,7 @@ class api(APIView):
                 b.append({i.index[x]:i.iloc[x,0]})
                 
             pruebaListaSemanal.append(b) 
-        print(pruebaListaSemanal)
+        #print(pruebaListaSemanal)
         
         # prueba cambio datos mensual para grafico
         pruebaListaMensual=[]
@@ -230,9 +230,9 @@ class api(APIView):
                 b.append({i.index[x]:i.iloc[x,0]})
                 
             pruebaListaMensual.append(b) 
-        print(pruebaListaSemanal)
+        #print(pruebaListaSemanal)
 
-        
+        print(pruebaListaDiarios[2])  
         
         #creacion estructura de datos json
         datos=[{'columna1':
@@ -264,15 +264,33 @@ class api(APIView):
                           {'semanal':[]},
                           {'mensual':[]}]}]}]},
                {'columna2':
-                   [{'nombre1':
-                       [{'datoreal':
-                           [{'diario':[{'fecha1':1},{'fecha2':3}],
-                            'semanal':[{'indicadorSemana1':6},{'indicadorSemana2':3}],
-                            'mensual':[{'mes1':2},{'mes2':3}]}]},
-                           {'prediccion':
-                               [{'diario':[]},
-                                {'semanal':[]},
-                                {'mensual':[]}]}]}]}]
+            [{'fede': 
+                [{'datoreal':
+                    [{'diario':pruebaListaDiarios[0]},
+                    {'semanal':pruebaListaSemanal[0]},
+                    {'mensual':pruebaListaMensual[0]}]},
+                {'prediccion':
+                    [{'diario':[]},
+                    {'semanal':[]},
+                    {'mensual':[]}]}]},
+             {'walter': 
+                 [{'datoreal':
+                     [{'diario':pruebaListaDiarios[1]},
+                      {'semanal':pruebaListaSemanal[1]},
+                      {'mensual':pruebaListaMensual[1]}]},
+                    {'prediccion':
+                        [{'diario':[]},
+                        {'semanal':[]},
+                        {'mensual':[]}]}]},
+             {'anastasio': 
+                 [{'datoreal':
+                     [{'diario':pruebaListaDiarios[2]},
+                      {'semanal':pruebaListaSemanal[2]},
+                      {'mensual':pruebaListaMensual[2]}]},
+                     {'prediccion':
+                         [{'diario':[]},
+                          {'semanal':[]},
+                          {'mensual':[]}]}]}]}]
                             
         print(type(datos)) 
         # datos=json.dumps(datos)
