@@ -232,7 +232,7 @@ class api(APIView):
             pruebaListaMensual.append(b) 
         #print(pruebaListaSemanal)
 
-        print(pruebaListaDiarios[2])  
+
         
         #creacion estructura de datos json
         datos=[{'columna1':
@@ -242,27 +242,27 @@ class api(APIView):
                     {'semanal':pruebaListaSemanal[0]},
                     {'mensual':pruebaListaMensual[0]}]},
                 {'prediccion':
-                    [{'diario':[]},
-                    {'semanal':[]},
-                    {'mensual':[]}]}]},
+                    [{'Predicción Diario':2},
+                          {'Predicción Semanal':5},
+                          {'Prediccion Mensual':20}]}]},
              {'walter': 
                  [{'datoreal':
                      [{'diario':pruebaListaDiarios[1]},
                       {'semanal':pruebaListaSemanal[1]},
                       {'mensual':pruebaListaMensual[1]}]},
                     {'prediccion':
-                        [{'diario':[]},
-                        {'semanal':[]},
-                        {'mensual':[]}]}]},
+                        [{'Predicción Diario':2},
+                          {'Predicción Semanal':5},
+                          {'Prediccion Mensual':20}]}]},
              {'miguel': 
                  [{'datoreal':
                      [{'diario':pruebaListaDiarios[2]},
                       {'semanal':pruebaListaSemanal[2]},
                       {'mensual':pruebaListaMensual[2]}]},
                      {'prediccion':
-                         [{'diario':[]},
-                          {'semanal':[]},
-                          {'mensual':[]}]}]}]},
+                         [{'Predicción Diario':2},
+                          {'Predicción Semanal':5},
+                          {'Prediccion Mensual':20}]}]}]},
                {'columna2':
             [{'fede': 
                 [{'datoreal':
@@ -270,27 +270,27 @@ class api(APIView):
                     {'semanal':pruebaListaSemanal[0]},
                     {'mensual':pruebaListaMensual[0]}]},
                 {'prediccion':
-                    [{'diario':[]},
-                    {'semanal':[]},
-                    {'mensual':[]}]}]},
+                    [{'Predicción Diario':2},
+                          {'Predicción Semanal':5},
+                          {'Prediccion Mensual':20}]}]},
              {'walter': 
                  [{'datoreal':
                      [{'diario':pruebaListaDiarios[1]},
                       {'semanal':pruebaListaSemanal[1]},
                       {'mensual':pruebaListaMensual[1]}]},
                     {'prediccion':
-                        [{'diario':[]},
-                        {'semanal':[]},
-                        {'mensual':[]}]}]},
+                        [{'Predicción Diario':2},
+                          {'Predicción Semanal':5},
+                          {'Prediccion Mensual':20}]}]},
              {'anastasio': 
                  [{'datoreal':
                      [{'diario':pruebaListaDiarios[2]},
                       {'semanal':pruebaListaSemanal[2]},
                       {'mensual':pruebaListaMensual[2]}]},
                      {'prediccion':
-                         [{'diario':[]},
-                          {'semanal':[]},
-                          {'mensual':[]}]}]}]}]
+                         [{'Predicción Diario':2},
+                          {'Predicción Semanal':5},
+                          {'Prediccion Mensual':20}]}]}]}]
                             
         print(type(datos)) 
         # datos=json.dumps(datos)
